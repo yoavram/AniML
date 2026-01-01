@@ -6,18 +6,21 @@
 This 4-hour workshop introduces marine biology graduate students to modern Machine Learning (ML) and Artificial Intelligence (AI) tools. 
 We move beyond traditional spreadsheets to automated pipelines using Python, R, and AI coding agents.
 
-## 🚀 Schedule & Notebooks
-All coding will be done in **Google Colab**. No local installation is required.
+All analysis will be done in [**Google Colab**](https://colab.research.google.com). No local installation is required.
 
-| Session | Topic | Key Concepts | Notebook / Data |
-| :--- | :--- | :--- | :--- |
-| **1** | **Concepts** | Machine Learning, Classification, Decision Tree, Random Forest | 
-| **2** | [**Penguin species (Python)**](penguins.md) | `scikit-learn`, `pandas`, Gemini Agent | 
-| **3** | **Coral bleaching (R)** | `randomForest`, `tidyverse` in Colab | 
-| **4** | **Fish market (exercise)** | 
-| **5** | **Photo-identification (Python)** | MegaDetector, BioCLIP, Automated Counting 
+All coding will be done with [Gemini](https://gemini.google.com/) inside Google Colab.
 
 ## 🛠 Prerequisites
 1. A Google Account (for Colab).
-2. Get [Gemini](https://gemini.google.com/) - [Free for students](https://gemini.google/il/students/?hl=iw) - for the coding assistance demos.
+2. [Gemini Free for Students](https://gemini.google/il/students/?hl=iw) - for the coding assistance demos.
 
+
+## 🚀 Schedule
+
+| Session | Topic | Key Concepts | Notebook / Data |
+| :--- | :--- | :--- | :--- |
+| **1** |  Introduction: Machine Learning, Classification, Decision Tree, Random Forest, Colab, Gemini | 
+| **2** | [**Penguin species with Python**](penguins.md) | 
+| **3** | [**Coral bleaching with R**](coral_bleaching.md) | 
+| **4** | **Fish market (exercise)** | 
+| **5** | **Photo-identification (Python)** | MegaDetector, BioCLIP, Automated Counting 
