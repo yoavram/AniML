@@ -89,8 +89,34 @@ Print the new Confusion Matrix. Did Recall improve?
 What to expect: Recall for 'High' will jump up significantly (maybe to 70-80%).
 False Positives will also jump (you will alarm for some healthy reefs).
 
+- Original Model (No weighting): Recall for 'High' = 169 / (169 + 346) = 32.8%
+- Weighted Model: Recall for 'High' = 174 / (174 + 341) = 33.8%
+- Threshold Moving (0.25 threshold): Recall for 'High' = 268 / (268 + 247) = 52.0%
+
 The Discussion: Ask the class: "As a park ranger, would you rather miss a dying reef (False Negative) or accidentally check a healthy reef (False Positive)?"
 
+## Precision-Recall (PR) 
+[PR Curve is significantly better than the standard ROC Curve](10.1371/journal.pone.0118432).
+
+- ROC Curves can be misleading here because the "False Positive Rate" (x-axis) looks small just because you have so many "Low" samples (the denominator is huge).
+- PR Curves focus purely on the minority class. They show the direct trade-off: "If I want to catch 80% of the bleaching (Recall), what will my False Alarm rate be (Precision)?"
+
+Prompt:
+```
+Since the classes are imbalanced, accuracy is not a good metric. Use the ROCR package to calculate the performance measures. Plot the Precision-Recall Curve for the 'High' bleaching class. Calculate the Area Under the PR Curve (AUC-PR) to get a single score for model performance. Add a point on the plot showing where our current model (with default 0.5 threshold) sits.
+```
+
+Project the curve and ask the students to pick a point on the line:
+
+The Conservative Scientist (Top-Left): High Precision, Low Recall.
+
+"I only flag a reef if I am 100% sure. I will miss many bleaching events, but I will never cry wolf."
+
+The Panic Button (Bottom-Right): Low Precision, High Recall.
+
+"I flag everything that looks even slightly suspicious. I catch every bleaching event, but I waste money checking healthy reefs."
+
+The Sweet Spot: The point closest to the top-right corner (1,1).
 
 ## Source code
 
