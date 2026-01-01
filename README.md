@@ -17,8 +17,8 @@ All coding will be done with [Gemini](https://gemini.google.com/) inside Google 
 
 ## 🚀 Schedule
 
-| Session | Topic | Key Concepts | Notebook / Data |
-| :--- | :--- | :--- | :--- |
+| Session | Topic | 
+| :--- | :--- |
 | **1** |  Introduction: Machine Learning, Classification, Decision Tree, Random Forest, Colab, Gemini | 
 | **2** | [**Penguin species with Python**](penguins.md) | 
 | **3** | [**Coral bleaching with R**](coral_bleaching.md) | 
