@@ -52,6 +52,23 @@ Depth might be second (deeper = cooler/less light).
 
 Ask: "Does this match what we know about physiology?" (Yes).
 
+
+### The Accuracy Paradox.
+
+The Trap: "If I told you my model is 96% accurate, would you buy it?" (Most will say yes).
+
+The Reveal: "This model missed 67% of the severe bleaching events (346 missed out of 515). If we used this for conservation, the reef would die while the computer says 'Everything is fine'."
+
+The Cause: Class Imbalance. There are ~15x more "Low" samples than "High". The model learned it can just guess "Low" and be right most of the time.
+
+The Fix: Weighted Random Forest
+
+The easiest fix in R's randomForest is to penalize mistakes on the rare class using classwt or sampsize.
+Prompt:
+```
+The model has high accuracy but poor recall for 'High' bleaching because of class imbalance. Retrain the Random Forest model, but this time downsample the majority class to match the minority class size (or use classwt) to balance the learning. Compare the new Confusion Matrix to the old one. Did Recall for 'High' improve?
+```
+
 ## Source code
 
 ```R
