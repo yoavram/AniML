@@ -23,4 +23,4 @@ All coding will be done with [Gemini](https://gemini.google.com/) inside Google 
 | **2** | [**Penguin species with Python**](penguins.md) | 
 | **3** | [**Coral bleaching with R**](coral_bleaching.md) | 
 | **4** | **Fish market (exercise)** | 
-| **5** | **Photo-identification (Python)** | MegaDetector, BioCLIP, Automated Counting 
+| **5** | [**Species photo-identification (Python)**](computervision.ipynb) | 
