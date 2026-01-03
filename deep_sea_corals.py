@@ -1,16 +1,9 @@
 import pandas as pd
 import numpy as np
 
-# @title 🌊 Generate "Deep Sea Coral Survey" Dataset
-# Based on real niche profiles of common Red Sea & Deep Sea corals.
-
+# @title 🌊 Generate "Messy" Deep Sea Coral Dataset (Hard Mode)
 np.random.seed(42)
 n_samples = 1500
-
-# --- 1. Define Species Niches (Real Biology) ---
-# Species A: Stylophora pistillata (Shallow, Warm, High Light)
-# Species B: Desmophyllum pertusum (Deep, Cold, Low Light - formerly Lophelia)
-# Species C: Dendrophyllia (Mesophotic, Medium Depth)
 
 species = []
 depths = []
@@ -19,32 +12,36 @@ salinities = []
 oxygens = []
 
 for i in range(n_samples):
-    # Pick a "True" species for this site
-    sp = np.random.choice(['Stylophora_pistillata', 'Desmophyllum_pertusum', 'Dendrophyllia_sp'])
+    sp = np.random.choice(['Stylophora_pistillata', 'Dendrophyllia_sp', 'Desmophyllum_pertusum'])
     
+    # Overlapping Niches!
     if sp == 'Stylophora_pistillata':
-        # Shallow Reef: 5-50m, 24-28C
-        d = np.random.normal(20, 10)
-        t = np.random.normal(26, 1.5)
-        o2 = np.random.normal(5.5, 0.5) # High oxygen (waves)
+        # Shallow: 0-60m
+        d = np.random.normal(30, 15) 
+        t = np.random.normal(26, 2.0)
+        o2 = np.random.normal(5.0, 0.8)
     
     elif sp == 'Dendrophyllia_sp':
-        # Mesophotic/Twilight Zone: 50-150m, 20-24C
-        d = np.random.normal(100, 25)
-        t = np.random.normal(22, 1.2)
-        o2 = np.random.normal(4.5, 0.4)
+        # Twilight Zone: 40-120m (Significant overlap with Shallow)
+        d = np.random.normal(80, 25) 
+        t = np.random.normal(24, 2.5) # Temps overlap with shallow
+        o2 = np.random.normal(4.0, 0.8)
         
     elif sp == 'Desmophyllum_pertusum':
-        # Deep Sea: 200m+, 12-16C (Red Sea is warm deep, unlike Atlantic!)
-        d = np.random.normal(400, 50)
-        t = np.random.normal(21, 0.5) # Red Sea deep water is weirdly warm (~21C)
-        o2 = np.random.normal(2.0, 0.3) # Lower oxygen
+        # Deepish: 100m+ (Overlap with Dendro)
+        d = np.random.normal(150, 40)
+        t = np.random.normal(22, 2.0)
+        o2 = np.random.normal(3.0, 1.0)
 
-    # Add environmental noise (Real sensors are noisy)
-    d = abs(d + np.random.normal(0, 5))
-    t = t + np.random.normal(0, 0.5)
-    s = np.random.normal(40.5, 0.2) # Red Sea is salty!
-    o2 = abs(o2 + np.random.normal(0, 0.2))
+    # Add Sensor Glitches (Outliers)
+    if np.random.random() < 0.05: # 5% of data is "bad"
+        d = d * np.random.uniform(0.5, 1.5)
+        t = t + np.random.normal(0, 5)
+
+    # Ensure physics make sense (no negative depth/oxygen)
+    d = abs(d)
+    o2 = max(0, o2)
+    s = np.random.normal(40.5, 0.5) # Salinity is barely useful (noise variable)
 
     species.append(sp)
     depths.append(round(d, 1))
@@ -60,6 +57,5 @@ df_coral = pd.DataFrame({
     'Dissolved_Oxygen_mlL': oxygens
 })
 
-# Save
 df_coral.to_csv('deep_sea_corals.csv', index=False)
-print("✅ Created 'deep_sea_corals.csv' with 1500 survey points.")
+print("✅ Created 'Hard Mode' dataset. Overlap enabled.")
