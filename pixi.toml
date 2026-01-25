@@ -1,0 +1,23 @@
+[workspace]
+authors = ["Yoav Ram <yoavram@tauex.tau.ac.il>"]
+channels = ["pytorch-nightly", "conda-forge"]
+name = "AniML"
+platforms = ["osx-arm64", "linux-64", "win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = ">=3.11.2,<3.13"
+pytorch = ">=2.6.0.dev20241112,<3"
+torchvision = ">=0.20.0.dev20241113,<0.21"
+
+[pypi-dependencies]
+ipykernel = ">=7.1.0, <8"
+numpy = ">=2.4.1, <3"
+requests = ">=2.32.5, <3"
+pillow = ">=10.4.0, <13"
+tqdm = ">=4.67.1, <5"
+matplotlib = ">=3.10.8, <4"
+megadetector = ">=10.0.17, <11"
+open-clip-torch = ">=3.2.0, <4"
