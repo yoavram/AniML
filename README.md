@@ -23,10 +23,10 @@ All analysis will be done in **VS Code** with **GitHub Copilot**.
 ## 🛠 Setup
 1. Install [VS Code](https://code.visualstudio.com/download).
 1. If you don't already have one, [create a GitHub account](https://education.github.com).
-1. [Verify your student status on GitHub](https://education.github.com/pack). Submitted applications are sometimes reviewed within the hour or at most within a day.
-1. Connect Copilot to Github: Go to the [Copilot website](https://copilot.github.com ) and log in. Then, go to the Settings section and connect your Github account to Copilot.
-1. Setup [Github Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
-1. Install Python and/or R:
-  - [R in VS Code](https://code.visualstudio.com/docs/languages/r)
+1. [Verify your student/academy status on GitHub Education](https://education.github.com/pack). You can continue setup, the verificaiton process might take an hour or a few days.
+1. Setup [Github Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
+1. Install a programming language:
   - [Python in VS Code](https://code.visualstudio.com/docs/languages/python)
+  - [R in VS Code](https://code.visualstudio.com/docs/languages/r)
+1. Optional: Install [Jupyter extension in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
 
