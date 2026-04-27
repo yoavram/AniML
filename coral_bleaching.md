@@ -13,7 +13,7 @@ First you do:
 1. Download the data from Kaggle (see linke above).
 1. Move the downloaded csv file to the workshop folder
 
-Then, use the Copilot to:
+Then, use Copilot to:
 1. Convert `Bleaching_Level` to a **Factor** (Crucial for classification in R!).
 1. Train a **Random Forest** model.
 1. Visualize **Variable Importance** (Which environmental factor is the "killer"?).
