@@ -10,10 +10,9 @@
 **The Mission:**
 
 1. Download the data from Kaggle (see linke above).
-2. Switch the Colab Runtime to **R**.
-3. Upload the data file to Colab.
+1. Move the downloaded csv file to the workshop folder
 
-Use the Gemini Agent to:
+Use the Copilot to:
 3. Convert `Bleaching_Level` to a **Factor** (Crucial for classification in R!).
 4. Train a **Random Forest** model.
 5. Visualize **Variable Importance** (Which environmental factor is the "killer"?).
