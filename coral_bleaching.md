@@ -15,7 +15,7 @@ First you do:
 
 Then, use Copilot to:
 1. Convert `Bleaching_Level` to a **Factor** (Crucial for classification in R!).
-1. Train a **Random Forest** model.
+1. Train a **Random Forest** model to predict `Bleaching_Level` from the variables: `Distance_to_Shore	Exposure	Turbidity	Cyclone_Frequency Depth_m ClimSST	Temperature_Kelvin	Temperature_Mean	Temperature_Minimum	Temperature_Maximum	Temperature_Kelvin_Standard_Deviation	Windspeed	SSTA	SSTA_Standard_Deviation	SSTA_Mean	SSTA_Minimum	SSTA_Maximum	SSTA_Frequency	SSTA_Frequency_Standard_Deviation	SSTA_FrequencyMax	SSTA_FrequencyMean	SSTA_DHW	SSTA_DHW_Standard_Deviation	SSTA_DHWMax	SSTA_DHWMean	TSA	TSA_Standard_Deviation	TSA_Minimum	TSA_Maximum	TSA_Mean	TSA_Frequency	TSA_Frequency_Standard_Deviation	TSA_FrequencyMax	TSA_FrequencyMean	TSA_DHW	TSA_DHW_Standard_Deviation	TSA_DHWMax	TSA_DHWMean`
 1. Visualize **Variable Importance** (Which environmental factor is the "killer"?).
 
 ## Prompt
@@ -29,7 +29,7 @@ Convert the 'Bleaching_Level' column to a factor (classification).
 
 Split the data into 70% training and 30% testing.
 
-Train a Random Forest to predict 'Bleaching_Level' using all other columns.
+Train a Random Forest to predict 'Bleaching_Level' using the columns 'Distance_to_Shore	Exposure	Turbidity	Cyclone_Frequency Depth_m ClimSST	Temperature_Kelvin	Temperature_Mean	Temperature_Minimum	Temperature_Maximum	Temperature_Kelvin_Standard_Deviation	Windspeed	SSTA	SSTA_Standard_Deviation	SSTA_Mean	SSTA_Minimum	SSTA_Maximum	SSTA_Frequency	SSTA_Frequency_Standard_Deviation	SSTA_FrequencyMax	SSTA_FrequencyMean	SSTA_DHW	SSTA_DHW_Standard_Deviation	SSTA_DHWMax	SSTA_DHWMean	TSA	TSA_Standard_Deviation	TSA_Minimum	TSA_Maximum	TSA_Mean	TSA_Frequency	TSA_Frequency_Standard_Deviation	TSA_FrequencyMax	TSA_FrequencyMean	TSA_DHW	TSA_DHW_Standard_Deviation	TSA_DHWMax	TSA_DHWMean'
 
 Print the Confusion Matrix using table().
 
