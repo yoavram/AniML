@@ -40,7 +40,7 @@ Plot the Variable Importance using varImpPlot() to see the drivers of bleaching.
 
 The "Factor" Trap: This is the #1 bug in R Machine Learning.
 
-Explanation: "If you don't run as.factor(), the model will try to predict the average bleaching (Regression). We want to predict the category (Classification). Gemini knows this, but you must ask it specifically."
+Explanation: "If you don't run as.factor(), the model will try to predict the average bleaching (Regression). We want to predict the category (Classification). The AI agent knows this, but you must ask it specifically."
 
 The "Formula" (~ .): Explain how elegant R is here. Bleaching ~ . means "Bleaching depends on everything." No need to list columns X = [...] like in Python.
 
