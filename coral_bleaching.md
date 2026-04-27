@@ -13,9 +13,10 @@
 1. Move the downloaded csv file to the workshop folder
 
 Use the Copilot to:
-3. Convert `Bleaching_Level` to a **Factor** (Crucial for classification in R!).
-4. Train a **Random Forest** model.
-5. Visualize **Variable Importance** (Which environmental factor is the "killer"?).
+
+1. Convert `Bleaching_Level` to a **Factor** (Crucial for classification in R!).
+1. Train a **Random Forest** model.
+1. Visualize **Variable Importance** (Which environmental factor is the "killer"?).
 
 ## Prompt
 
