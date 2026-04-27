@@ -19,7 +19,7 @@ Identifying species in the field is slow and requires an expert taxonomist on th
   - `Length1`, `Length2`, `Length3` (Standard Length, Fork Length, Total Length)
   - `Height`, `Width`
 
-**Your Tasks (Ask Gemini):**
+**Your Tasks (use Copilot):**
 1.  **Load** the data.
 2.  **Sanity Check:** Field data often has errors. Filter out any rows where `Weight` is 0 or less (measurement error).
 3.  **Explore:** Plot a **Boxplot of Weight vs Species**. Which species is the heaviest?
