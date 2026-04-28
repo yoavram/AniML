@@ -75,7 +75,7 @@ The Fix: Threshold Tuning
 In standard classification, the model predicts "High" only if it is >50% sure. But for a marine biologist, missing a bleaching event is costly. You might want to flag a reef as "High Risk" even if the model is only 20% sure.
 Prompt:
 ```
-The class weighting didn't help enough. Let's try Threshold Moving.
+Let's try Threshold Moving.
 
 Use the model to predict probabilities instead of classes (type='prob').
 
