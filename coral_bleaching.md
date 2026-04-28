@@ -2,34 +2,34 @@
 **Objective:** Can we predict whether a coral reef will suffer "High" or "Low" bleaching based on environmental conditions?
 
 **The Data:**
-- **Source:** Global Coral Bleaching Database (subset).
-- **Target:** `Bleaching_Level` (High vs. Low).
-- **Features:** Water Temperature, Depth, Turbidity, Distance to Shore, Windspeed.
+- **Source:** Global Coral Bleaching Database.
+- **Target:** `Percent_Bleaching`, classify High vs. Low.
+- **Features:** Water Temperature, Depth, Turbidity, Distance to Shore, Windspeed, etc.
 - Available from [Kaggle](https://www.kaggle.com/datasets/pnminh95/global-bleaching-environmental?resource=download&select=global_bleaching_environmental.csv) as a CSV file.
 
 **The Mission:**
 
 First you do:
-1. Download the data from Kaggle (see linke above).
+1. Download the data from Kaggle (see link above).
 1. Move the downloaded csv file to the workshop folder
 
 Then, use Copilot to:
-1. Convert `Bleaching_Level` to a **Factor** (Crucial for classification in R!).
-1. Train a **Random Forest** model to predict `Bleaching_Level` from the variables: `Distance_to_Shore	Exposure	Turbidity	Cyclone_Frequency Depth_m ClimSST	Temperature_Kelvin	Temperature_Mean	Temperature_Minimum	Temperature_Maximum	Temperature_Kelvin_Standard_Deviation	Windspeed	SSTA	SSTA_Standard_Deviation	SSTA_Mean	SSTA_Minimum	SSTA_Maximum	SSTA_Frequency	SSTA_Frequency_Standard_Deviation	SSTA_FrequencyMax	SSTA_FrequencyMean	SSTA_DHW	SSTA_DHW_Standard_Deviation	SSTA_DHWMax	SSTA_DHWMean	TSA	TSA_Standard_Deviation	TSA_Minimum	TSA_Maximum	TSA_Mean	TSA_Frequency	TSA_Frequency_Standard_Deviation	TSA_FrequencyMax	TSA_FrequencyMean	TSA_DHW	TSA_DHW_Standard_Deviation	TSA_DHWMax	TSA_DHWMean`
+1. Convert `Percent_Bleaching` to a **Factor** (Crucial for classification in R).
+1. Train a **Random Forest** model to predict `Percent_Bleaching` from the variables: `Distance_to_Shore	Exposure	Turbidity	Cyclone_Frequency Depth_m ClimSST	Temperature_Kelvin	Temperature_Mean	Temperature_Minimum	Temperature_Maximum	Temperature_Kelvin_Standard_Deviation	Windspeed	SSTA	SSTA_Standard_Deviation	SSTA_Mean	SSTA_Minimum	SSTA_Maximum	SSTA_Frequency	SSTA_Frequency_Standard_Deviation	SSTA_FrequencyMax	SSTA_FrequencyMean	SSTA_DHW	SSTA_DHW_Standard_Deviation	SSTA_DHWMax	SSTA_DHWMean	TSA	TSA_Standard_Deviation	TSA_Minimum	TSA_Maximum	TSA_Mean	TSA_Frequency	TSA_Frequency_Standard_Deviation	TSA_FrequencyMax	TSA_FrequencyMean	TSA_DHW	TSA_DHW_Standard_Deviation	TSA_DHWMax	TSA_DHWMean`
 1. Visualize **Variable Importance** (Which environmental factor is the "killer"?).
 
 ## Prompt
 
 ```
-Write R code  using tidyverse and randomForest.
+Write R code using tidyverse and randomForest.
 
 Load the dataset from global_bleaching_environmental.csv.
 
-Convert the 'Bleaching_Level' column to a factor (classification).
+Convert the 'Percent_Bleaching' column to a factor for classification.
 
 Split the data into 70% training and 30% testing.
 
-Train a Random Forest to predict 'Bleaching_Level' using the columns 'Distance_to_Shore	Exposure	Turbidity	Cyclone_Frequency Depth_m ClimSST	Temperature_Kelvin	Temperature_Mean	Temperature_Minimum	Temperature_Maximum	Temperature_Kelvin_Standard_Deviation	Windspeed	SSTA	SSTA_Standard_Deviation	SSTA_Mean	SSTA_Minimum	SSTA_Maximum	SSTA_Frequency	SSTA_Frequency_Standard_Deviation	SSTA_FrequencyMax	SSTA_FrequencyMean	SSTA_DHW	SSTA_DHW_Standard_Deviation	SSTA_DHWMax	SSTA_DHWMean	TSA	TSA_Standard_Deviation	TSA_Minimum	TSA_Maximum	TSA_Mean	TSA_Frequency	TSA_Frequency_Standard_Deviation	TSA_FrequencyMax	TSA_FrequencyMean	TSA_DHW	TSA_DHW_Standard_Deviation	TSA_DHWMax	TSA_DHWMean'
+Train a Random Forest to predict 'Percent_Bleaching' using the columns 'Distance_to_Shore	Exposure	Turbidity	Cyclone_Frequency Depth_m ClimSST	Temperature_Kelvin	Temperature_Mean	Temperature_Minimum	Temperature_Maximum	Temperature_Kelvin_Standard_Deviation	Windspeed	SSTA	SSTA_Standard_Deviation	SSTA_Mean	SSTA_Minimum	SSTA_Maximum	SSTA_Frequency	SSTA_Frequency_Standard_Deviation	SSTA_FrequencyMax	SSTA_FrequencyMean	SSTA_DHW	SSTA_DHW_Standard_Deviation	SSTA_DHWMax	SSTA_DHWMean	TSA	TSA_Standard_Deviation	TSA_Minimum	TSA_Maximum	TSA_Mean	TSA_Frequency	TSA_Frequency_Standard_Deviation	TSA_FrequencyMax	TSA_FrequencyMean	TSA_DHW	TSA_DHW_Standard_Deviation	TSA_DHWMax	TSA_DHWMean'
 
 Print the Confusion Matrix using table().
 
@@ -57,7 +57,7 @@ Ask: "Does this match what we know about physiology?" (Yes).
 
 The Trap: "If I told you my model is 96% accurate, would you buy it?" (Most will say yes).
 
-The Reveal: "This model missed 67% of the severe bleaching events (346 missed out of 515). If we used this for conservation, the reef would die while the computer says 'Everything is fine'."
+The Reveal: "This model missed some of the severe bleaching events. If we used this for conservation, the reef would die while the computer says 'Everything is fine'."
 
 The Cause: Class Imbalance. There are ~15x more "Low" samples than "High". The model learned it can just guess "Low" and be right most of the time.
 
@@ -69,7 +69,7 @@ Prompt:
 The model has high accuracy but poor recall for 'High' bleaching because of class imbalance. Retrain the Random Forest model, but this time downsample the majority class to match the minority class size (or use classwt) to balance the learning. Compare the new Confusion Matrix to the old one. Did Recall for 'High' improve?
 ```
 
-Result: The Recall for 'High' bleaching events has slightly improved from 32.8% (169 / (169 + 346)) to 33.8% (174 / (174 + 341)).
+Result: The Recall for 'High' bleaching events has slightly improved.
 
 The Fix: Threshold Tuning
 In standard classification, the model predicts "High" only if it is >50% sure. But for a marine biologist, missing a bleaching event is costly. You might want to flag a reef as "High Risk" even if the model is only 20% sure.
@@ -86,12 +86,8 @@ Create a new prediction: If the probability of 'High' is greater than 0.25 (inst
 Print the new Confusion Matrix. Did Recall improve?
 ```
 
-What to expect: Recall for 'High' will jump up significantly (maybe to 70-80%).
+What to expect: Recall for 'High' will jump up significantly.
 False Positives will also jump (you will alarm for some healthy reefs).
-
-- Original Model (No weighting): Recall for 'High' = 169 / (169 + 346) = 32.8%
-- Weighted Model: Recall for 'High' = 174 / (174 + 341) = 33.8%
-- Threshold Moving (0.25 threshold): Recall for 'High' = 268 / (268 + 247) = 52.0%
 
 The Discussion: Ask the class: "As a park ranger, would you rather miss a dying reef (False Negative) or accidentally check a healthy reef (False Positive)?"
 
@@ -117,46 +113,3 @@ The Panic Button (Bottom-Right): Low Precision, High Recall.
 "I flag everything that looks even slightly suspicious. I catch every bleaching event, but I waste money checking healthy reefs."
 
 The Sweet Spot: The point closest to the top-right corner (1,1).
-
-## Source code
-
-```R
-# 1. Install/Load Packages (Colab has them pre-installed usually, but good to check)
-suppressPackageStartupMessages(library(tidyverse))
-library(randomForest)
-
-# 2. Load Data
-url <- "https://raw.githubusercontent.com/yoavram/MarineML/main/data/coral.csv" # Replace with real URL
-coral <- read_csv(url)
-
-# 3. Data Prep
-# In R, randomForest performs Regression if target is numeric, and Classification if Factor.
-# We MUST convert to factor.
-coral <- coral %>%
-  mutate(Bleaching_Level = as.factor(Bleaching_Level)) %>%
-  drop_na()
-
-# 4. Split Data
-set.seed(42)
-sample_size <- floor(0.7 * nrow(coral))
-train_ind <- sample(seq_len(nrow(coral)), size = sample_size)
-
-train <- coral[train_ind, ]
-test <- coral[-train_ind, ]
-
-# 5. Train Model
-# Formula: Target ~ . (means "predicted by everything else")
-rf_model <- randomForest(Bleaching_Level ~ ., data = train, ntree = 100)
-
-# 6. Evaluate
-predictions <- predict(rf_model, test)
-print("Confusion Matrix:")
-print(table(Predicted = predictions, Actual = test$Bleaching_Level))
-
-# 7. Check Accuracy
-accuracy <- sum(predictions == test$Bleaching_Level) / nrow(test)
-print(paste("Accuracy:", round(accuracy, 2)))
-
-# 8. Variable Importance Plot
-varImpPlot(rf_model, main = "Drivers of Coral Bleaching")
-```
