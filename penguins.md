@@ -2,6 +2,7 @@
 **Objective:** Can we train a Machine Learning model to identify penguin species (Adelie, Chinstrap, Gentoo) based only on their physical measurements?
 
 **The Data:**
+- **URL**: https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv
 - **Source:** Palmer Station, Antarctica LTER.
 - **Variables:** Bill length, bill depth, flipper length, body mass, sex, island.
 
